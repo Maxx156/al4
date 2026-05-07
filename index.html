@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>СтройМастер | Строительство и ремонт под ключ</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts: Inter + Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #1e293b;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            background: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 24px;
+            max-width: 1360px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.7rem;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            color: #e67e22;
+        }
+        .logo span {
+            color: #1e293b;
+        }
+        .logo i {
+            color: #e67e22;
+            margin-right: 6px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #334155;
+            transition: 0.2s;
+        }
+        .nav-links a:hover { color: #e67e22; }
+
+        .btn-call {
+            background: #e67e22;
+            color: white;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .btn-call:hover {
+            background: #c2410c;
+        }
+
+        .burger {
+            display: none;
+            font-size: 1.7rem;
+            cursor: pointer;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(110deg, #fef9f0 0%, #ffffff 100%);
+            padding: 70px 0 60px;
+        }
+        .hero-grid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+        .hero-text {
+            flex: 1;
+        }
+        .hero-badge {
+            background: #fff1e5;
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 40px;
+            color: #e67e22;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .hero-text p {
+            font-size: 1.1rem;
+            color: #475569;
+            margin-bottom: 28px;
+            max-width: 550px;
+        }
+        .btn {
+            display: inline-block;
+            background: #e67e22;
+            color: white;
+            padding: 14px 34px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1px solid #e67e22;
+            color: #e67e22;
+        }
+        .btn:hover {
+            background: #c2410c;
+            transform: translateY(-2px);
+        }
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 32px;
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+        }
+
+        /* Services */
+        .section {
+            padding: 80px 0;
+        }
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .section-title span {
+            color: #e67e22;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+        .service-card {
+            background: white;
+            border-radius: 24px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: 0.25s;
+            border: 1px solid #eef2f8;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.02);
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: #fed7aa;
+            box-shadow: 0 20px 28px -12px rgba(230,126,34,0.15);
+        }
+        .service-card i {
+            font-size: 2.8rem;
+            color: #e67e22;
+            margin-bottom: 20px;
+        }
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+
+        /* Projects / Portfolio */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .project-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            transition: 0.25s;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            border: 1px solid #edf2f7;
+        }
+        .project-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        .project-info {
+            padding: 24px;
+        }
+        .project-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 6px;
+        }
+
+        /* About & advantages */
+        .about-wrap {
+            background: #f8fafc;
+            border-radius: 48px;
+            padding: 48px 40px;
+        }
+        .features-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            margin-top: 32px;
+        }
+        .feature-item {
+            flex: 1;
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+        .feature-item i {
+            font-size: 2rem;
+            color: #e67e22;
+        }
+
+        /* Form + callback */
+        .callback-form {
+            background: #1e293b;
+            border-radius: 48px;
+            padding: 56px 48px;
+            color: white;
+        }
+        .form-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+        }
+        .form-text {
+            flex: 1;
+        }
+        .form-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+        }
+        .form-fields {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .form-fields input, .form-fields textarea {
+            padding: 14px 20px;
+            border-radius: 32px;
+            border: none;
+            font-size: 1rem;
+            width: 100%;
+        }
+        .form-fields button {
+            background: #e67e22;
+            border: none;
+            padding: 14px;
+            border-radius: 40px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: #cbd5e1;
+            padding: 48px 0 24px;
+        }
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 32px;
+        }
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 16px;
+        }
+        .social a {
+            color: #94a3b8;
+            margin-right: 18px;
+            font-size: 1.3rem;
+        }
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 780px) {
+            .navbar {
+                padding: 14px 20px;
+            }
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 70%;
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 40px;
+                gap: 28px;
+                transition: 0.3s;
+                height: calc(100vh - 70px);
+                z-index: 999;
+                box-shadow: 4px 0 20px rgba(0,0,0,0.05);
+            }
+            .nav-links.active {
+                left: 0;
+            }
+            .burger {
+                display: block;
+            }
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+            .callback-form {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="navbar">
+        <div class="logo"><i class="fas fa-hard-hat"></i> Строй<span>Мастер</span></div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Главная</a></li>
+            <li><a href="#services">Услуги</a></li>
+            <li><a href="#projects">Объекты</a></li>
+            <li><a href="#about">О нас</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+        </ul>
+        <button class="btn-call" id="callBtn"><i class="fas fa-phone-alt"></i> Заказать звонок</button>
+        <div class="burger" id="burgerBtn"><i class="fas fa-bars"></i></div>
+    </div>
+</header>
+
+<main>
+    <!-- Hero секция -->
+    <section id="home" class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <div class="hero-badge"><i class="fas fa-trophy"></i> 12 лет на рынке</div>
+                <h1>Строительство и ремонт<br> под ключ</h1>
+                <p>Коттеджи, квартиры, коммерческая недвижимость. Гарантия качества, прозрачная смета и соблюдение сроков.</p>
+                <a href="#callback" class="btn">Рассчитать стоимость</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://raspp.ru/upload/medialibrary/447/b53e19288eb68b246d95aa21ac5d5e93.jpg" alt="Строительная компания">
+            </div>
+        </div>
+    </section>
+
+    <!-- Услуги -->
+    <section id="services" class="section">
+        <div class="container">
+            <h2 class="section-title">Наши <span>услуги</span></h2>
+            <div class="services-grid">
+                <div class="service-card"><i class="fas fa-drafting-compass"></i><h3>Проектирование</h3><p>Архитектурные планы, 3D-визуализация и инженерные решения.</p></div>
+                <div class="service-card"><i class="fas fa-home"></i><h3>Строительство домов</h3><p>Кирпичные, монолитные, каркасные дома "под ключ".</p></div>
+                <div class="service-card"><i class="fas fa-paint-roller"></i><h3>Отделка и ремонт</h3><p>Косметический, капитальный, дизайнерский ремонт квартир.</p></div>
+                <div class="service-card"><i class="fas fa-hard-hat"></i><h3>Фасадные работы</h3><p>Утепление, вентилируемые фасады, облицовка.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Портфолио / Выполненные проекты -->
+    <section id="projects" class="section" style="background:#fefaf5;">
+        <div class="container">
+            <h2 class="section-title">Наши <span>объекты</span></h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="https://m.terem-pro.ru/upload/iblock/aac/aacb8ad02704aba529852f015b50f522.jpg" alt="Коттедж">
+                    <div class="project-info"><h3>Коттедж в ЖК "Лесной"</h3><p>Площадь 220 м², монолитный каркас, отделка премиум.</p></div>
+                </div>
+                <div class="project-card">
+                    <img src="https://bc-linkor.com/wp-content/uploads/linkor-main-photo-1.jpg" alt="Офисный центр">
+                    <div class="project-info"><h3>Бизнес-центр "Атлант"</h3><p>Ремонт офисного пространства 1000 м², под ключ за 3 месяца.</p></div>
+                </div>
+                <div class="project-card">
+                    <img src="https://salon.ru/storage/thumbs/gallery/631/630382/835_3500_s265.jpg" alt="Квартира">
+                    <div class="project-info"><h3>Квартира 95 м²</h3><p>Дизайнерский ремонт, перепланировка, чистовые материалы.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- О компании + преимущества -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="about-wrap">
+                <h2 class="section-title" style="margin-bottom: 20px;">Почему <span>СтройМастер</span></h2>
+                <div class="features-list">
+                    <div class="feature-item"><i class="fas fa-ruler-combined"></i><div><strong>Своя техника и бригады</strong><br>Работаем без посредников</div></div>
+                    <div class="feature-item"><i class="fas fa-file-signature"></i><div><strong>Фиксированная смета</strong><br>Без скрытых платежей</div></div>
+                    <div class="feature-item"><i class="fas fa-clock"></i><div><strong>Гарантийные сроки</strong><br>До 5 лет на работы</div></div>
+                </div>
+                <p style="margin-top: 28px; color:#475569;">Более 120 реализованных объектов. Работаем по договору, поэтапная оплата. Индивидуальный подход к каждому клиенту.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Форма заявки (расчёт сметы / обратная связь) -->
+    <section id="callback" class="section">
+        <div class="container">
+            <div class="callback-form">
+                <div class="form-grid">
+                    <div class="form-text">
+                        <h3>Получите <span style="color:#e67e22;">бесплатную смету</span></h3>
+                        <p>Оставьте заявку — мы рассчитаем стоимость работ и материалов в течение 1 часа.<br>Консультация специалиста бесплатно.</p>
+                    </div>
+                    <form id="estimateForm" class="form-fields">
+                        <input type="text" id="userName" placeholder="Ваше имя" required>
+                        <input type="tel" id="userPhone" placeholder="Телефон" required>
+                        <textarea rows="2" id="userMessage" placeholder="Опишите задачу: тип объекта, площадь, желаемый срок"></textarea>
+                        <button type="submit" class="btn">Отправить заявку</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты и карта (заглушка) -->
+    <section id="contacts" class="section" style="padding-top: 20px;">
+        <div class="container">
+            <h2 class="section-title">Наши <span>контакты</span></h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between;">
+                <div style="flex:1;">
+                    <p><i class="fas fa-map-marker-alt" style="color:#e67e22;"></i> <strong>Адрес:</strong> г. Москва, ул. Строителей, 12, оф. 305</p>
+                    <p><i class="fas fa-phone-alt" style="color:#e67e22;"></i> <strong>Телефон:</strong> +7 (495) 123-45-67</p>
+                    <p><i class="fas fa-envelope" style="color:#e67e22;"></i> <strong>Email:</strong> info@stroymaster.ru</p>
+                    <p><i class="fas fa-clock" style="color:#e67e22;"></i> <strong>Режим работы:</strong> Пн–Пт 9:00–20:00, Сб 10:00–16:00</p>
+                </div>
+                <div style="flex:1; background: #eef2ff; border-radius: 28px; height: 200px; display: flex; align-items: center; justify-content: center; color: #334155;">
+                    <i class="fas fa-map" style="font-size: 2rem; margin-right: 10px;"></i> интерактивная карта
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>СтройМастер</h4>
+                <p>Надёжное строительство с 2012 года. Работаем по всей Московской области.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Навигация</h4>
+                <p><a href="#home" style="color:#cbd5e1; text-decoration:none;">Главная</a></p>
+                <p><a href="#services" style="color:#cbd5e1; text-decoration:none;">Услуги</a></p>
+                <p><a href="#projects" style="color:#cbd5e1; text-decoration:none;">Объекты</a></p>
+            </div>
+            <div class="footer-col">
+                <h4>Соцсети</h4>
+                <div class="social">
+                    <a href="#"><i class="fab fa-vk"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">© 2025 СтройМастер — Все права защищены. Политика конфиденциальности</div>
+    </div>
+</footer>
+
+<!-- Модальное окно для звонка (простейшее) -->
+<div id="callModal" style="display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.6); z-index: 2000; align-items: center; justify-content: center;">
+    <div style="background: white; max-width: 400px; padding: 32px; border-radius: 32px; text-align: center;">
+        <h3 style="margin-bottom: 16px;">Заказать звонок</h3>
+        <form id="callForm">
+            <input type="text" id="callName" placeholder="Имя" style="width:100%; padding:12px; margin-bottom:12px; border-radius: 40px; border:1px solid #ccc;">
+            <input type="tel" id="callPhone" placeholder="Телефон" required style="width:100%; padding:12px; margin-bottom:20px; border-radius: 40px; border:1px solid #ccc;">
+            <button type="submit" style="background:#e67e22; color:white; padding:12px; width:100%; border-radius:40px;">Перезвоните мне</button>
+        </form>
+        <button id="closeModalBtn" style="margin-top: 12px; background:none; border:none; cursor:pointer;">Закрыть</button>
+    </div>
+</div>
+
+<script>
+    // Burger menu
+    const burger = document.getElementById('burgerBtn');
+    const navLinks = document.getElementById('navLinks');
+    if (burger) {
+        burger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = burger.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    }
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            if (burger) {
+                const icon = burger.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    });
+
+    // Форма сметы (строительная)
+    const estimateForm = document.getElementById('estimateForm');
+    if (estimateForm) {
+        estimateForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('userName').value.trim();
+            const phone = document.getElementById('userPhone').value.trim();
+            const msg = document.getElementById('userMessage').value;
+            if (!name || !phone) {
+                alert('Пожалуйста, укажите имя и телефон.');
+                return;
+            }
+            alert(`Спасибо, ${name}! Ваша заявка принята. Менеджер свяжется с вами в ближайшее время для расчёта сметы.`);
+            estimateForm.reset();
+        });
+    }
+
+    // Модальное окно "Заказать звонок"
+    const callBtn = document.getElementById('callBtn');
+    const modal = document.getElementById('callModal');
+    const closeModal = document.getElementById('closeModalBtn');
+    const callForm = document.getElementById('callForm');
+
+    if (callBtn) {
+        callBtn.addEventListener('click', () => {
+            modal.style.display = 'flex';
+        });
+    }
+    if (closeModal) {
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+    }
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) modal.style.display = 'none';
+    });
+    if (callForm) {
+        callForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const phone = document.getElementById('callPhone').value.trim();
+            if (!phone) {
+                alert('Введите номер телефона.');
+                return;
+            }
+            alert('Спасибо! Ожидайте звонка в течение 15 минут.');
+            modal.style.display = 'none';
+            callForm.reset();
+        });
+    }
+
+    // плавное появление элементов (необязательно)
+    const sections = document.querySelectorAll('.service-card, .project-card, .feature-item');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    sections.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(15px)';
+        el.style.transition = 'all 0.4s ease';
+        observer.observe(el);
+    });
+    document.querySelector('.hero-text')?.style.setProperty('opacity', '1');
+</script>
+</body>
+</html>
